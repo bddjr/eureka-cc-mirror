@@ -6,7 +6,7 @@ nginx proxy config
 ```nginx
 location ^~ / {
     proxy_pass https://eureka.codingclip.cc; 
-    if ( $uri = "/rebots.txt" ) {
+    if ( $uri = "/robots.txt" ) {
         return 200 "User-agent: *\nDisallow: /";
     }
     rewrite ^(.*)/index\.html$ $1/ redirect;
