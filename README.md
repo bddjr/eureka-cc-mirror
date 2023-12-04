@@ -6,6 +6,7 @@ nginx proxy config
 ```
 location ^~ / {
     proxy_pass https://eureka.codingclip.cc; 
+    rewrite ^(.*)/index\.html$ $1/ redirect;
     proxy_set_header Host eureka.codingclip.cc; 
     proxy_set_header X-Real-IP $remote_addr; 
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
@@ -30,6 +31,5 @@ location ^~ / {
     client_body_buffer_size 10M;
     client_body_in_file_only off;
     client_body_timeout 30s;
-    rewrite ^(.*)/index\.html$ $1/ redirect;
 }
 ```
