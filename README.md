@@ -6,6 +6,9 @@ nginx proxy config
 ```nginx
 location ^~ / {
     proxy_pass https://eureka.codingclip.cc; 
+    if ( $uri = "/rebots.txt" ) {
+        return 200 "User-agent: *\nDisallow: /";
+    }
     rewrite ^(.*)/index\.html$ $1/ redirect;
     proxy_set_header Host eureka.codingclip.cc; 
     proxy_set_header X-Real-IP $remote_addr; 
