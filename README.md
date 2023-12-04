@@ -24,6 +24,8 @@ location ^~ / {
     proxy_cache_valid 200 304 301 302 10m; 
     proxy_ssl_server_name on;
     proxy_cache_revalidate on;
-    proxy_next_upstream off;
+    proxy_next_upstream error timeout http_502 http_500 http_429 non_idempotent invalid_header ;
+    proxy_next_upstream_tries 3;
+    proxy_request_buffering on;
 }
 ```
