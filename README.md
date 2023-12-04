@@ -30,5 +30,6 @@ location ^~ / {
     client_body_buffer_size 10M;
     client_body_in_file_only off;
     client_body_timeout 30s;
+    rewrite ^(.*)/index\.html$ $1/ redirect;
 }
 ```
