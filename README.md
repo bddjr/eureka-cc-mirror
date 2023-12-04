@@ -19,10 +19,7 @@ location ^~ / {
     proxy_set_header X-Forwarded-Proto $scheme; 
     proxy_http_version 1.1; 
     add_header X-Cache $upstream_cache_status; 
-    if ( $uri ~* "\.(gif|png|jpg|css|js|woff|woff2)$" ) {
-        expires 1m; 
-    }
-    proxy_ignore_headers Set-Cookie Cache-Control expires; 
+    proxy_ignore_headers Set-Cookie expires; 
     proxy_cache proxy_cache_panel; 
     proxy_cache_key $host$uri$is_args$args; 
     proxy_cache_valid 200 304 301 302 10m; 
