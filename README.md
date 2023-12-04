@@ -3,7 +3,7 @@ https://eureka-cc-mirror.bddjr.cn
 
 ***
 nginx proxy config
-```
+```nginx
 location ^~ / {
     proxy_pass https://eureka.codingclip.cc; 
     rewrite ^(.*)/index\.html$ $1/ redirect;
