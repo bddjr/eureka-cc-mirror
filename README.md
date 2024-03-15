@@ -28,7 +28,7 @@ location ^~ / {
     proxy_next_upstream error timeout http_502 http_500 http_429 non_idempotent invalid_header ;
     proxy_next_upstream_tries 3;
     proxy_request_buffering on;
-    client_body_buffer_size 10M;
+    client_body_buffer_size 1M;
     client_body_in_file_only off;
     client_body_timeout 30s;
 }
